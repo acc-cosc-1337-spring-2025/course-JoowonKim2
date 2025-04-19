@@ -80,50 +80,10 @@ bool TicTacToe::check_board_full()
     return true;
 }
 
-bool TicTacToe:: check_column_win(){
+bool TicTacToe::check_column_win() { return false; }
+bool TicTacToe::check_row_win() { return false; }
+bool TicTacToe::check_diagonal_win() { return false; }
 
-    if (pegs[0] == pegs[3] && pegs[0] == pegs[6] && pegs[0] != " "){
-
-        return true;
-    }
-    if (pegs[1] == pegs[4] && pegs[1] == pegs[7] && pegs[1] != " "){
-
-        return true;
-    }
-    if (pegs[2] == pegs[5] && pegs[2] == pegs[8] && pegs[2] != " "){
-
-        return true;
-    }
-    return false;
-}
-
-bool TicTacToe::check_row_win()
-{
-    if (pegs[0] == pegs[1] && pegs[1] == pegs[2] && pegs[0] != " ") {
-        return true;
-    }
-    if (pegs[3] == pegs[4] && pegs[4] == pegs[5] && pegs[3] != " ") {
-        return true;
-    }
-    if (pegs[6] == pegs[7] && pegs[7] == pegs[8] && pegs[6] != " ") {
-        return true;
-    }
-
-    return false;
-}
-
-bool TicTacToe:: check_diagonal_win(){
-
-    if (pegs[0] == pegs[4] && pegs[0] == pegs[8] && pegs[0] != " "){
-
-        return true;
-    }
-    if (pegs[6] == pegs[4] && pegs[6] == pegs[2] && pegs[6] != " "){
-
-        return true;
-    }
-    return false;
-}
 
 void TicTacToe::set_winner()
 {
