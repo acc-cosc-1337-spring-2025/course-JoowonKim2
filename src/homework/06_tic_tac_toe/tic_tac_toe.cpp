@@ -3,7 +3,7 @@
 
 using std::cout;
 
-TicTacToe::TicTacToe(int size) : pegs(size * size, " ") {}
+TicTacToe::TicTacToe(int size) : pegs(size * size, " "), board_size(size) {}
 
 bool TicTacToe::game_over()
 {
@@ -35,13 +35,16 @@ void TicTacToe::mark_board(int position)
     set_next_player();
 }
 
-void TicTacToe::display_board() const
-{
-    for(long unsigned int i=0; i < pegs.size(); i += 3)
-    {
-        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+void TicTacToe::display_board() const {
+    for (int i = 0; i < pegs.size(); i++) {
+        std::cout << pegs[i];
+        if ((i + 1) % board_size == 0)
+            std::cout << "\n";
+        else
+            std::cout << " | ";
     }
 }
+
 
 std::string TicTacToe::get_winner() 
 {

@@ -30,6 +30,7 @@ protected:
     void clear_board();
     void set_next_player();
     void set_winner();
+    int board_size;
 };
 
 #endif
