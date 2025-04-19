@@ -8,10 +8,9 @@ void TicTacToeManager::get_winner_total(int& X, int& O, int& T)
     T = ties;
 }
 
-void TicTacToeManager::save_game(TicTacToe game)
-{
-    games.push_back(game);
-    update_winner_count(game.get_winner());
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game) {
+    update_winner_count(game->get_winner());
+    games.push_back(std::move(game));
 }
 
 void TicTacToeManager::update_winner_count(std::string winner)

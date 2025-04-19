@@ -3,16 +3,18 @@
 
 using std::cout;
 
+TicTacToe::TicTacToe(int size) : pegs(size * size, " ") {}
+
 bool TicTacToe::game_over()
 {
-    if (check_column_win() || check_row_win() || check_diagonal_win()){
-
-        set_winner();
+    if (check_board_full()){
 
         return true;
     }
 
-    else if(check_board_full()){
+    else if(check_column_win() || check_row_win() || check_diagonal_win()){
+
+        set_winner();
 
         return true;
     }
@@ -84,15 +86,6 @@ bool TicTacToe::check_column_win() { return false; }
 bool TicTacToe::check_row_win() { return false; }
 bool TicTacToe::check_diagonal_win() { return false; }
 
-
-void TicTacToe::set_winner()
-{
-    if (player == "X")
-    {
-        winner = "O";
-    }
-    else
-    {
-        winner = "X";
-    }
+void TicTacToe::set_winner() {
+    winner = (player == "X") ? "O" : "X";
 }
